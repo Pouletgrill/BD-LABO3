@@ -7,3 +7,4 @@ C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo_3.Proper
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.csproj.GenerateResource.Cache
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.exe
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.pdb
+C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Oracle.DataAccess.dll

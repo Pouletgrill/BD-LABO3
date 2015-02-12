@@ -82,7 +82,7 @@
          this.groupBox1.Controls.Add(this.TB_InsertNomEmp);
          this.groupBox1.Controls.Add(this.label1);
          this.groupBox1.Controls.Add(this.TB_InsertNumEmp);
-         this.groupBox1.Location = new System.Drawing.Point(12, 12);
+         this.groupBox1.Location = new System.Drawing.Point(12, 201);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(194, 184);
          this.groupBox1.TabIndex = 1;
@@ -256,7 +256,7 @@
          this.groupBox3.Controls.Add(this.TB_ListerNom);
          this.groupBox3.Controls.Add(this.label7);
          this.groupBox3.Controls.Add(this.DGV_Lister);
-         this.groupBox3.Location = new System.Drawing.Point(12, 202);
+         this.groupBox3.Location = new System.Drawing.Point(12, 11);
          this.groupBox3.Name = "groupBox3";
          this.groupBox3.Size = new System.Drawing.Size(194, 184);
          this.groupBox3.TabIndex = 4;
@@ -374,6 +374,8 @@
          this.Controls.Add(this.groupBox1);
          this.Name = "Form1";
          this.Text = "Form1";
+         this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+         this.Load += new System.EventHandler(this.Form1_Load);
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          this.groupBox2.ResumeLayout(false);
