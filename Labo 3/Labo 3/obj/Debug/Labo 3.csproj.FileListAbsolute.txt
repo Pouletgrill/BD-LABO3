@@ -8,3 +8,13 @@ C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.csproj
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.exe
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.pdb
 C:\Users\201354694\Desktop\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Oracle.DataAccess.dll
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Labo 3.exe.config
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.exe
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.pdb
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Labo 3.exe
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Labo 3.pdb
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\bin\Debug\Oracle.DataAccess.dll
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.csprojResolveAssemblyReference.cache
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo_3.Form1.resources
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo_3.Properties.Resources.resources
+C:\Users\PouletGrill\Documents\GitHub\BD-LABO3\Labo 3\Labo 3\obj\Debug\Labo 3.csproj.GenerateResource.Cache
