@@ -187,9 +187,60 @@ namespace Labo_3
             }
         }
 
+        //Count
         private void BTN_Count_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // //déclaration de OracleCommand pour appeler la fonction avec la
+                //connection conn.
+                OracleCommand OraCmdTotal = new OracleCommand("GESTIONPRODUITS", oraconn);
+                OraCmdTotal.CommandText = "GESTIONEMPLOYES.COUNTEMPLOYES";
+                OraCmdTotal.CommandType = CommandType.StoredProcedure;
 
+
+                // déclaration du paramètre en OUT
+                OracleParameter OraResultat = new
+                OracleParameter("RESULTAT", OracleDbType.Int32);
+                OraResultat.Direction = ParameterDirection.ReturnValue;
+                OraCmdTotal.Parameters.Add(OraResultat);
+
+                //comme on retourne un INT, on peut utiliser la méthode ExecuteScalar
+                //de l'objet OracleCommande
+                OraCmdTotal.ExecuteScalar();
+                TB_Count.Text = OraResultat.Value.ToString();
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message.ToString());
+            }
+        }
+
+        //Supprimer
+        private void BTN_Supprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // //déclaration de OracleCommand pour appeler la fonction avec la
+                //connection conn.
+                OracleCommand Oracmd = new OracleCommand("GESTIONPRODUITS",
+                oraconn);
+                Oracmd.CommandText = "GESTIONEMPLOYES.SUPPRIMER";
+                Oracmd.CommandType = CommandType.StoredProcedure;
+
+                //Déclaration des paramettres
+                OracleParameter oraPnumEmp = new OracleParameter("PNUMEMP", OracleDbType.Int32);
+                oraPnumEmp.Direction = ParameterDirection.Input;
+                oraPnumEmp.Value = TB_SupprimerNumEmp.Text;
+                Oracmd.Parameters.Add(oraPnumEmp);
+
+                Oracmd.ExecuteNonQuery();
+                MessageBox.Show("suppression réussie!");
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message.ToString());
+            }
         }
     }
 }

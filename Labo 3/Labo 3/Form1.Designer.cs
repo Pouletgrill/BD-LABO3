@@ -267,6 +267,7 @@
             this.BTN_Supprimer.TabIndex = 14;
             this.BTN_Supprimer.Text = "Supprimer";
             this.BTN_Supprimer.UseVisualStyleBackColor = true;
+            this.BTN_Supprimer.Click += new System.EventHandler(this.BTN_Supprimer_Click);
             // 
             // groupBox5
             // 
