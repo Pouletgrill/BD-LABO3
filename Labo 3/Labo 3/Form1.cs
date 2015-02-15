@@ -53,6 +53,7 @@ namespace Labo_3
             }
         }
         //\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\/\\
+        //Insertion
         private void BTN_Insert_Click(object sender, EventArgs e)
         {
             try
@@ -94,6 +95,59 @@ namespace Labo_3
             {
                 MessageBox.Show(Oe.Message);
             }
+        }
+
+        //Lister
+        private void BTN_Lister_Click(object sender, EventArgs e)
+        {
+
+
+
+            try
+            {
+                // //déclaration de OracleCommand pour appeler la fonction avec la
+                //connection conn.
+                OracleCommand oraliste = new OracleCommand("GESTIONPRODUITS",
+                oraconn);
+                oraliste.CommandText = "GESTIONEMPLOYES.LISTER";
+                oraliste.CommandType = CommandType.StoredProcedure;
+                // pour une fonction, le paramètre de retour doit être déclaré en
+                //premier.
+                OracleParameter OrapameResultat = new
+                OracleParameter("ENREMPLOYE", OracleDbType.RefCursor);
+                OrapameResultat.Direction = ParameterDirection.ReturnValue;
+                oraliste.Parameters.Add(OrapameResultat);
+
+                // déclaration du paramètre en IN
+                OracleParameter oraPcodeDep = new
+                OracleParameter("PCODEDEP", OracleDbType.Char,3);
+                oraPcodeDep.Value = TB_InsertCodeDep.Text;
+                oraPcodeDep.Direction = ParameterDirection.Input;
+                oraliste.Parameters.Add(oraPcodeDep);
+
+                // Pour remplir le DataSet, on déclare un OracleDataAdapter pour lequel
+                // on passe notre OracleCommand qui contient TOUS les paramètres.
+
+                 OracleDataAdapter orAdater = new OracleDataAdapter(oraliste);
+                if (monDataSet.Tables.Contains("ListeProduits"))
+                {
+                monDataSet.Tables["ListeProduits"].Clear();
+                }
+                orAdater.Fill(monDataSet, "ListeProduits");
+                oraliste.Dispose();
+                BindingSource maSource;
+                maSource = new BindingSource(monDataSet, "ListeProduits");
+                DGVProduits.DataSource = maSource;
+            }
+
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message.ToString());
+            }
+
+
+
+
         }
 
     }

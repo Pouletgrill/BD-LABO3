@@ -57,7 +57,7 @@
             this.TB_SalNumEmp = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BTN_Lister = new System.Windows.Forms.Button();
-            this.TB_ListerNom = new System.Windows.Forms.TextBox();
+            this.TB_ListerCodeDep = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.DGV_Lister = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -325,7 +325,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.BTN_Lister);
-            this.groupBox3.Controls.Add(this.TB_ListerNom);
+            this.groupBox3.Controls.Add(this.TB_ListerCodeDep);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.DGV_Lister);
             this.groupBox3.Location = new System.Drawing.Point(12, 11);
@@ -343,14 +343,15 @@
             this.BTN_Lister.TabIndex = 2;
             this.BTN_Lister.Text = "GO";
             this.BTN_Lister.UseVisualStyleBackColor = true;
+            this.BTN_Lister.Click += new System.EventHandler(this.BTN_Lister_Click);
             // 
-            // TB_ListerNom
+            // TB_ListerCodeDep
             // 
-            this.TB_ListerNom.Location = new System.Drawing.Point(73, 19);
-            this.TB_ListerNom.MaxLength = 3;
-            this.TB_ListerNom.Name = "TB_ListerNom";
-            this.TB_ListerNom.Size = new System.Drawing.Size(49, 20);
-            this.TB_ListerNom.TabIndex = 1;
+            this.TB_ListerCodeDep.Location = new System.Drawing.Point(73, 19);
+            this.TB_ListerCodeDep.MaxLength = 3;
+            this.TB_ListerCodeDep.Name = "TB_ListerCodeDep";
+            this.TB_ListerCodeDep.Size = new System.Drawing.Size(49, 20);
+            this.TB_ListerCodeDep.TabIndex = 1;
             // 
             // label7
             // 
@@ -455,7 +456,7 @@
       private System.Windows.Forms.Label label6;
       private System.Windows.Forms.GroupBox groupBox3;
       private System.Windows.Forms.Button BTN_Lister;
-      private System.Windows.Forms.TextBox TB_ListerNom;
+      private System.Windows.Forms.TextBox TB_ListerCodeDep;
       private System.Windows.Forms.Label label7;
       private System.Windows.Forms.DataGridView DGV_Lister;
       private System.Windows.Forms.Label label8;
