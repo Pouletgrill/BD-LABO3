@@ -205,6 +205,7 @@
             this.BTN_Recherche.TabIndex = 4;
             this.BTN_Recherche.Text = "GO";
             this.BTN_Recherche.UseVisualStyleBackColor = true;
+            this.BTN_Recherche.Click += new System.EventHandler(this.BTN_Recherche_Click);
             // 
             // TB_RechercheNom
             // 
@@ -399,6 +400,7 @@
             this.BTN_Count.TabIndex = 5;
             this.BTN_Count.Text = "Calculer";
             this.BTN_Count.UseVisualStyleBackColor = true;
+            this.BTN_Count.Click += new System.EventHandler(this.BTN_Count_Click);
             // 
             // Form1
             // 

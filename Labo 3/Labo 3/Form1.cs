@@ -14,6 +14,7 @@ namespace Labo_3
     public partial class Form1 : Form
     {
         private OracleConnection oraconn = new OracleConnection();
+        private DataSet monDataSet = new DataSet();
         public Form1()
         {
             InitializeComponent();
@@ -83,10 +84,10 @@ namespace Labo_3
                 oraPSalaireEmp.Value = TB_InsertSalEmp.Text;
                 oraAjout.Parameters.Add(oraPSalaireEmp);
 
-                OracleParameter oraPcodeDep = new OracleParameter("PCODEDEP", OracleDbType.Char, 3);
-                oraPcodeDep.Direction = ParameterDirection.Input;
-                oraPcodeDep.Value = TB_InsertCodeDep.Text;
-                oraAjout.Parameters.Add(oraPcodeDep);
+                OracleParameter OraDesc = new OracleParameter("PCODEDEP", OracleDbType.Char, 3);
+                OraDesc.Direction = ParameterDirection.Input;
+                OraDesc.Value = TB_InsertCodeDep.Text;
+                oraAjout.Parameters.Add(OraDesc);
                 //Execution de la requête
                 oraAjout.ExecuteNonQuery();
                 MessageBox.Show("Insertion réusit");
@@ -100,8 +101,6 @@ namespace Labo_3
         //Lister
         private void BTN_Lister_Click(object sender, EventArgs e)
         {
-
-
 
             try
             {
@@ -120,35 +119,77 @@ namespace Labo_3
 
                 // déclaration du paramètre en IN
                 OracleParameter oraPcodeDep = new
-                OracleParameter("PCODEDEP", OracleDbType.Char,3);
-                oraPcodeDep.Value = TB_InsertCodeDep.Text;
+                OracleParameter("PCODEDEP", OracleDbType.Char, 3);
+                oraPcodeDep.Value = TB_ListerCodeDep.Text;
                 oraPcodeDep.Direction = ParameterDirection.Input;
                 oraliste.Parameters.Add(oraPcodeDep);
 
                 // Pour remplir le DataSet, on déclare un OracleDataAdapter pour lequel
                 // on passe notre OracleCommand qui contient TOUS les paramètres.
 
-                 OracleDataAdapter orAdater = new OracleDataAdapter(oraliste);
-                if (monDataSet.Tables.Contains("ListeProduits"))
+                OracleDataAdapter orAdater = new OracleDataAdapter(oraliste);
+                if (monDataSet.Tables.Contains("ENREMPLOYE"))
                 {
-                monDataSet.Tables["ListeProduits"].Clear();
+                    monDataSet.Tables["ENREMPLOYE"].Clear();
                 }
-                orAdater.Fill(monDataSet, "ListeProduits");
+                orAdater.Fill(monDataSet, "ENREMPLOYE");
                 oraliste.Dispose();
                 BindingSource maSource;
-                maSource = new BindingSource(monDataSet, "ListeProduits");
-                DGVProduits.DataSource = maSource;
+                maSource = new BindingSource(monDataSet, "ENREMPLOYE");
+                DGV_Lister.DataSource = maSource;
             }
-
             catch (Exception se)
             {
                 MessageBox.Show(se.Message.ToString());
             }
-
-
-
-
         }
 
+        //Recherche
+        private void BTN_Recherche_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // //déclaration de OracleCommand pour appeler la fonction avec la
+                //connection conn.
+                OracleCommand Oracmd = new OracleCommand("GESTIONPRODUITS",
+                oraconn);
+                Oracmd.CommandText = "GESTIONEMPLOYES.RECHERCHE";
+                Oracmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter OraDesc = new
+                OracleParameter("NOM", OracleDbType.Varchar2,30);
+                OraDesc.Value = TB_RechercheNom.Text;
+                OraDesc.Direction = ParameterDirection.Input;
+                Oracmd.Parameters.Add(OraDesc);
+
+                OracleParameter orapamres = new OracleParameter("ENREMPLOYE",
+                OracleDbType.RefCursor);
+                orapamres.Direction = ParameterDirection.Output;
+                Oracmd.Parameters.Add(orapamres);
+
+                // Pour remplir le DataSet, on déclare un OracleDataAdapter pour lequel
+                // on passe notre OracleCommand qui contient TOUS les paramètres.
+
+                OracleDataAdapter orAdater = new OracleDataAdapter(Oracmd);
+                if (monDataSet.Tables.Contains("PARnom"))
+                {
+                    monDataSet.Tables["PARnom"].Clear();
+                }
+                orAdater.Fill(monDataSet, "PARnom");
+                Oracmd.Dispose();
+                BindingSource maSource;
+                maSource = new BindingSource(monDataSet, "PARnom");
+                DGV_Recherche.DataSource = maSource;
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message.ToString());
+            }
+        }
+
+        private void BTN_Count_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
