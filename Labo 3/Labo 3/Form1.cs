@@ -242,5 +242,37 @@ namespace Labo_3
                 MessageBox.Show(se.Message.ToString());
             }
         }
+
+        private void BTN_Sal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // //déclaration de OracleCommand pour appeler la fonction avec la
+                //connection conn.
+                OracleCommand Oracmd = new OracleCommand("GESTIONPRODUITS",
+                oraconn);
+                Oracmd.CommandText = "GESTIONEMPLOYES.UPDATESAL";
+                Oracmd.CommandType = CommandType.StoredProcedure;
+
+                //Déclaration des paramettres
+                OracleParameter oraPnumEmp = new OracleParameter("PNUMEMP", OracleDbType.Int32);
+                oraPnumEmp.Direction = ParameterDirection.Input;
+                oraPnumEmp.Value = TB_SalNumEmp.Text;
+                Oracmd.Parameters.Add(oraPnumEmp);
+
+                //Déclaration des paramettres
+                OracleParameter oraSal = new OracleParameter("SAL", OracleDbType.Int32);
+                oraSal.Direction = ParameterDirection.Input;
+                oraSal.Value = TB_SalModif.Text;
+                Oracmd.Parameters.Add(oraSal);
+
+                Oracmd.ExecuteNonQuery();
+                MessageBox.Show("suppression réussie!");
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.Message.ToString());
+            }
+        }
     }
 }

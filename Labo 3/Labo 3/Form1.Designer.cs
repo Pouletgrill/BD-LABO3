@@ -289,8 +289,9 @@
             this.BTN_Sal.Name = "BTN_Sal";
             this.BTN_Sal.Size = new System.Drawing.Size(182, 23);
             this.BTN_Sal.TabIndex = 17;
-            this.BTN_Sal.Text = "Supprimer";
+            this.BTN_Sal.Text = "Modifier";
             this.BTN_Sal.UseVisualStyleBackColor = true;
+            this.BTN_Sal.Click += new System.EventHandler(this.BTN_Sal_Click);
             // 
             // label10
             // 
